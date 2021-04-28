@@ -2,13 +2,13 @@ const express = require("express");
 const router = express();
 const bodyParser = require("body-parser");
 
+
+
 const User = require("../models/user");
-
-
 const userCreate = require("../validation/user-create");
 
 router.use(
-  bodyParser.urlencoded({
+    bodyParser.urlencoded({
     extended: true,
   })
 );
@@ -71,6 +71,20 @@ router.put("/update/:num", (req, res) => {
           }
         }
       );
+  });
+
+
+// DELETE USER [DELETE]
+router.delete("/delete/:num", (req, res) => {
+      User.findOneAndDelete({ phone: req.params.num }, function (err, result) {
+        if (err){
+            return res.json(err)
+        }
+        else{
+            console.log("Deleted User : ", result);
+            return res.json(result)
+        }
+    });
   });
 
 
