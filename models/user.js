@@ -4,32 +4,26 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   f_name: {
     type: String,
-    required: true,
   },
   l_name: {
     type: String,
-    required: false,
   },
   company: {
     type: String,
-    required: false,
   },
   job_title: {
     type: String,
-    required: false,
   },
   email: {
     type: String,
-    required: false,
   },
   phone: {
-    type: Number,
-    required: false,
+    type: String,
   },
   notes: {
     type: String,
-    required: false,
   },
 });
 
+//Phone set as string for ease of validator library
 module.exports = user = mongoose.model("users", userSchema);

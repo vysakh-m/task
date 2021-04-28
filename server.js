@@ -21,8 +21,8 @@ mongoose.connect(uri, {
 });
 
 
-// //Importing Routes
-// app.use("/user", require("./routes/user"));
+//Importing Routes
+app.use("/user", require("./routes/user"));
 
 
 const port=4000
